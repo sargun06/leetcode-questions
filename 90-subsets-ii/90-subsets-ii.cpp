@@ -6,8 +6,13 @@ public:
     {
         if(nums.size()==i)
         {
-            val.insert(temp);
-            return;            
+            if(val.find(temp)== val.end())
+            {
+                val.insert(temp);
+                result.push_back(temp);
+            }
+            return;
+            
         }
         temp.push_back(nums[i]);
         subset(nums, temp, i+1);
@@ -19,10 +24,8 @@ public:
 
     vector<vector<int>> subsetsWithDup(vector<int>& nums) {
         vector<int> temp;
-                sort(nums.begin(), nums.end());
-
+        sort(nums.begin(), nums.end());
         subset(nums, temp, 0);
-        result.assign(val.begin(), val.end());
         return result;
     }
 };
