@@ -9,23 +9,22 @@ class Solution
     public:
     vector<long long> nextLargerElement(vector<long long> nums, int n){
         stack<long long> st;
-        vector<long long> result;
+        vector<long long> result(n,-1);
         for(int i=n-1; i>=0; i--)
         {
             if(st.empty())
-                result.push_back(-1);
+                result[i]=-1;
             else
             {
                 while(st.size()>0 && st.top()<nums[i])
                     st.pop();
                 if(st.empty())
-                    result.push_back(-1);
+                    result[i]=-1;
                 else
-                    result.push_back(st.top());
+                    result[i]=st.top();
             }
             st.push(nums[i]);
         }
-        reverse(result.begin(), result.end());
         return result;
     }
 };
