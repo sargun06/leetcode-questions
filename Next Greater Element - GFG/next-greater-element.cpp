@@ -12,15 +12,11 @@ class Solution
         vector<long long> result(n,-1);
         for(int i=n-1; i>=0; i--)
         {
-            if(st.empty())
-                result[i]=-1;
-            else
+            if(!st.empty())
             {
                 while(st.size()>0 && st.top()<nums[i])
                     st.pop();
-                if(st.empty())
-                    result[i]=-1;
-                else
+                if(!st.empty())
                     result[i]=st.top();
             }
             st.push(nums[i]);
