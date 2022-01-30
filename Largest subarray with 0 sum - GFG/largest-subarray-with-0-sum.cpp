@@ -21,11 +21,7 @@ class Solution{
             if(m.find(sum)==m.end())
             m.insert({sum,i});
             else
-            {
-                int len=i-m[sum];
-                maxi=max(len,maxi);
-            }
-            
+                maxi=max(i-m[sum],maxi);
         }
         return maxi;
     }
