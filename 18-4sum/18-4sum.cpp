@@ -21,14 +21,13 @@ public:
                     else
                     {
                         ans.push_back({nums[i],nums[j],nums[front],nums[back]});
-                        int f=nums[front];
-                        int b=nums[back];
-
-                        while(front<back && nums[front]==f)
+                        
+                        while(front<back && nums[front]==nums[front+1])
                             front++;
-
-                        while(front<back && nums[back]==b)
+                        front++;
+                        while(front<back && nums[back]==nums[back-1])
                             back--;
+                        back--;
                     }
                 }
             while(j + 1 < n && nums[j + 1] == nums[j]) ++j;
