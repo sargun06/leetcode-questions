@@ -22,7 +22,7 @@ class Solution {
                 
                 for(auto j:adj[x])
                 {
-                    if(!visited[j])
+                    if(visited[j]!=1)
                     {
                     q.push(j);
                     visited[j]=1;
