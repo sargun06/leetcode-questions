@@ -9,31 +9,27 @@ class Solution {
     vector<int> bfsOfGraph(int V, vector<int> adj[]) {
         vector<int> visited(V+1,0);
         vector<int> bfs;
-       
-                queue<int> q;
-                q.push(0);
-                visited[0]=1;
-                while(!q.empty())
-                {
-                    int x=q.front();
-                    q.pop();
-                    bfs.push_back(x);
+        
+      
+        queue<int> q;
+            q.push(0);
+            visited[0]=1;
+            while(!q.empty())
+            {
+                int temp=q.front();
+                q.pop();
+                bfs.push_back(temp);
                 
-                
-                for(auto j:adj[x])
+                for(auto j:adj[temp])
                 {
                     if(visited[j]!=1)
-                    {
                     q.push(j);
                     visited[j]=1;
-                    }
                 }
-                }
-            
+            }
         
-    
-    return bfs;
-}
+        return bfs;
+    }
 };
 
 // { Driver Code Starts.
