@@ -5,43 +5,11 @@ using namespace std;
  // } Driver Code Ends
 vector<int> find(int arr[], int n , int x )
 {
-    int first=-1, last=-1;
-    int l=0, h=n-1;
-    while(l<=h)
-    {
-        int mid= l+(h-l)/2;
-        if (arr[mid]>x)
-        {
-            h=mid-1;
-        }
-        else if(arr[mid]<x)
-        {
-            l=mid+1;
-        }
-        else
-        {
-            first=mid;
-            h=mid-1;
-        }
-    }
-    l=0, h=n-1;
-    while(l<=h)
-    {
-        int mid= l+(h-l)/2;
-        if (arr[mid]>x)
-        {
-            h=mid-1;
-        }
-        else if(arr[mid]<x)
-        {
-            l=mid+1;
-        }
-        else
-        {
-            last=mid;
-            l=mid+1;
-        }
-    }
+    // code here
+    if(!binary_search(arr,arr+n,x))
+    return {-1,-1};
+    int first=lower_bound(arr,arr+n,x)-arr;
+    int last=upper_bound(arr,arr+n,x)-arr-1;
     return {first,last};
 }
 
