@@ -36,8 +36,7 @@ bool solve(bool graph[101][101], int m, int N, int color[],int node){
 bool graphColoring(bool graph[101][101], int m, int N) {
     // your code here
     int color[N]={0};
-    if (solve(graph,m,N,color,0)) return true;
-    return false;
+    return solve(graph,m,N,color,0);
 }
 
 // { Driver Code Starts.
