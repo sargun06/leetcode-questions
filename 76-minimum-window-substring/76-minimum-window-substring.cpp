@@ -17,49 +17,25 @@ public:
                 if(mp[s[j]]==0) 
                     count--;
             }
-            if(count>0) j++;
-            else if(count==0)
+                
+            while(count==0)
             {
                 if(j-i+1<ans)
                 {
                     ans=j-i+1;
                     res=s.substr(i,ans);
                 }
-                
-                while(count==0)
+
+                if(mp.find(s[i])!=mp.end())
                 {
-                    if(mp.find(s[i])!=mp.end())
-                    {
-                        mp[s[i]]++;
-                        if(mp[s[i]]>0)
-                        {
-                            i++;
-                            count++;
-                        }
-                        else
-                        {
-                            i++;
-                            if(j-i+1<ans)
-                            {
-                                ans=j-i+1;
-                                res=s.substr(i,ans);
-                            }
-                        }
-                    }
-                    else
-                    {
-                        i++;
-                        if(j-i+1<ans)
-                        {
-                            ans=j-i+1;
-                            res=s.substr(i,ans);
-                        }
-                    }
+                    mp[s[i]]++;
+                    if(mp[s[i]]>0)
+                        count++;
                 }
-                j++;
+            i++;
             }
-            
+        j++;   
         }
-            return res;
+    return res;
     }
 };
